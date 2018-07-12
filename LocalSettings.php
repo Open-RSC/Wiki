@@ -141,8 +141,6 @@ $wgDefaultSkin = "Metrolook";
 # Enabled skins.
 # The following skins were automatically enabled:
 wfLoadSkin( 'Metrolook' );
-wfLoadSkin( 'MonoBook' );
-wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
 
 

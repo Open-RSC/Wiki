@@ -1,3 +1,7 @@
 # Global
 .*.swp
 .DS_Store
+
+__MACOSX/
+
+openrsc_wiki\.sql

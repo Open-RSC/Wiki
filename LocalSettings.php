@@ -45,6 +45,10 @@ $wgMetaNamespace = "Open_RSC_Wiki";
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
 $wgScriptPath = "/wiki";
 
+$wgGroupPermissions['Administrators']['import'] = true;
+$wgGroupPermissions['Administrators']['importupload'] = true;
+
+
 ## The protocol and server name to use in fully-qualified URLs
 $wgServer = "http://localhost";
 
@@ -69,6 +73,7 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
+#$wgDBserver = "127.0.0.1";
 $wgDBserver = "mysql";
 $wgDBname = "openrsc_wiki";
 $wgDBuser = "root";
@@ -136,13 +141,16 @@ $wgGroupPermissions['*']['edit'] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "Metrolook";
+$wgDefaultSkin = "tweeki";
+#$wgDefaultSkin = "DarkVector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
-wfLoadSkin( 'Metrolook' );
 wfLoadSkin( 'Vector' );
-
+wfLoadSkin( 'Tweeki' );
+wfLoadSkin( 'DarkVector' );
+$wgDarkVectorUseSimpleSearch = true;
+$wgDarkVectorUseIconWatch = true;
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtensions('ExtensionName');

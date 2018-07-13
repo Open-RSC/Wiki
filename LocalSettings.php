@@ -151,9 +151,6 @@ $wgDefaultSkin = "tweeki";
 # The following skins were automatically enabled:
 wfLoadSkin( 'Vector' );
 wfLoadSkin( 'Tweeki' );
-wfLoadSkin( 'DarkVector' );
-$wgDarkVectorUseSimpleSearch = true;
-$wgDarkVectorUseIconWatch = true;
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtensions('ExtensionName');

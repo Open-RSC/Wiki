@@ -24,7 +24,7 @@ $wgSMTP = array(
 
 $wgSitename = "Open RSC Wiki";
 $wgMetaNamespace = "Open_RSC_Wiki";
-$wgScriptPath = "/Wiki";
+$wgScriptPath = "/wiki";
 $wgServer = "http://localhost";
 
 $wgResourceBasePath = $wgScriptPath;
@@ -68,7 +68,7 @@ $wgShellLocale = "C.UTF-8";
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
 ## be publically accessible from the web.
-#$wgCacheDirectory = "$IP/cache";
+$wgCacheDirectory = "$IP/cache";
 
 $wgLanguageCode = "en";
 $wgSecretKey = "0e7757df33e87f81f51a7a745ddb28a0563f4d9de5ca30ad97f9e97df7c9cbb4";
@@ -92,8 +92,9 @@ $wgDiff3 = "/usr/bin/diff3";
 $wgGroupPermissions['*']['edit'] = false;
 
 $wgDefaultSkin = "tweeki";
-wfLoadSkin( 'Vector' );
 wfLoadSkin( 'Tweeki' );
+$wgHiddenPrefs[] = 'skin';
+
 wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'SpamBlacklist' );

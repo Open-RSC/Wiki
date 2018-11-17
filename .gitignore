@@ -5,3 +5,5 @@
 __MACOSX/
 
 openrsc_wiki\.sql
+
+cache/

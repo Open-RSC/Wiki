@@ -42,14 +42,14 @@ $wgLogo = "$wgResourceBasePath/resources/assets/icon-152x152.png";
 ## UPO means: this is also a user preference option
 
 $wgEnableEmail = false;
-$wgEnableUserEmail = true; # UPO
+$wgEnableUserEmail = false; # UPO
 
 $wgEmergencyContact = "apache@localhost";
 $wgPasswordSender = "apache@localhost";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
-$wgEmailAuthentication = true;
+$wgEmailAuthentication = false;
 
 ## Database settings
 $wgDBtype = "mysql";
@@ -65,7 +65,7 @@ $wgDBprefix = "";
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ANYTHING;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -126,7 +126,9 @@ $wgDefaultSkin = "tweeki";
 # Enabled skins.
 # The following skins were automatically enabled:
 wfLoadSkin( 'Tweeki' );
-
+wfLoadSkin( 'Vector' );
+wfLoadSkin( 'Timeless' );
+wfLoadSkin( 'MonoBook' );
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtensions('ExtensionName');
@@ -143,11 +145,8 @@ wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
-
-
-# End of automatically generated settings.
-# Add more configuration options below.
-
-
-$wgShowExceptionDetails = true;
-$wgShowDBErrorBacktrace = true;
+wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaPublicKey = '';
+$wgReCaptchaPrivateKey = '';
+$wgReCaptchaSendRemoteIP = 'true';

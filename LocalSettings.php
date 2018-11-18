@@ -116,8 +116,8 @@ $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/gnu-fdl.png";
 $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
-$wgGroupPermissions['*']['createaccount'] = false;
-$wgGroupPermissions['*']['edit'] = false;
+$wgGroupPermissions['*']['createaccount'] = true;
+$wgGroupPermissions['*']['edit'] = true;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
@@ -150,3 +150,8 @@ $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaPublicKey = '';
 $wgReCaptchaPrivateKey = '';
 $wgReCaptchaSendRemoteIP = 'true';
+$wgEnableDnsBlacklist = true;
+$wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'dnsbl.tornevall.org' );
+$wgEnableDnsBlacklist = true;
+$wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'opm.tornevall.org' );
+$wgSpamRegex = "/online-casino|buy-viagra|adipex|phentermine|adult-website\.com|display:none|overflow:\s*auto;\s*height:\s*[0-4]px;/i";

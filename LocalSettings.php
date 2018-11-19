@@ -102,7 +102,7 @@ $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "ac427dd91089a9ae";
+$wgUpgradeKey = "YOUCANTGUESSTHIS";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -145,11 +145,24 @@ wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
+
 wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
-$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgCaptchaClass = ( 'ReCaptchaNoCaptcha' );
 $wgReCaptchaPublicKey = '';
 $wgReCaptchaPrivateKey = '';
 $wgReCaptchaSendRemoteIP = 'true';
+
+#wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
+#$wgCaptchaClass = ( 'QuestyCaptcha' );
+#$arr = array (
+#	'what does the c in rsc stand for?' => 'classic',
+#	'Which animal is this? <img src="/wiki/resources/assets/fluffy.jpg“ alt="" title=“fluffy” />' => 'wolf',
+#	'Which animal is this? <img src="/wiki/resources/assets/fluffy2.jpg“ alt="" title=“fluffy2” />' => 'cat',
+#);
+#foreach ( $arr as $key => $value ) {
+#	$wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
+#}
+
 $wgEnableDnsBlacklist = true;
 $wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'dnsbl.tornevall.org' );
 $wgEnableDnsBlacklist = true;

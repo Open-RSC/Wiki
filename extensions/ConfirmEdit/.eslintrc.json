@@ -1,0 +1,10 @@
+{
+	"extends": "wikimedia",
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		"mw": false,
+		"$": false
+	}
+}

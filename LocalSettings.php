@@ -42,14 +42,14 @@ $wgLogo = "$wgResourceBasePath/resources/assets/icon-152x152.png";
 ## UPO means: this is also a user preference option
 
 $wgEnableEmail = false;
-$wgEnableUserEmail = true; # UPO
+$wgEnableUserEmail = false; # UPO
 
 $wgEmergencyContact = "apache@localhost";
 $wgPasswordSender = "apache@localhost";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
-$wgEmailAuthentication = true;
+$wgEmailAuthentication = false;
 
 ## Database settings
 $wgDBtype = "mysql";
@@ -65,7 +65,7 @@ $wgDBprefix = "";
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ANYTHING;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -102,7 +102,7 @@ $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "ac427dd91089a9ae";
+$wgUpgradeKey = "YOUCANTGUESSTHIS";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -116,8 +116,8 @@ $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/gnu-fdl.png";
 $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
-$wgGroupPermissions['*']['createaccount'] = false;
-$wgGroupPermissions['*']['edit'] = false;
+$wgGroupPermissions['*']['createaccount'] = true;
+$wgGroupPermissions['*']['edit'] = true;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
@@ -126,7 +126,9 @@ $wgDefaultSkin = "tweeki";
 # Enabled skins.
 # The following skins were automatically enabled:
 wfLoadSkin( 'Tweeki' );
-
+wfLoadSkin( 'Vector' );
+wfLoadSkin( 'Timeless' );
+wfLoadSkin( 'MonoBook' );
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtensions('ExtensionName');
@@ -144,10 +146,25 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
 
+wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
+$wgCaptchaClass = ( 'ReCaptchaNoCaptcha' );
+$wgReCaptchaPublicKey = '';
+$wgReCaptchaPrivateKey = '';
+$wgReCaptchaSendRemoteIP = 'true';
 
-# End of automatically generated settings.
-# Add more configuration options below.
+#wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
+#$wgCaptchaClass = ( 'QuestyCaptcha' );
+#$arr = array (
+#	'what does the c in rsc stand for?' => 'classic',
+#	'Which animal is this? <img src="/wiki/resources/assets/fluffy.jpg“ alt="" title=“fluffy” />' => 'wolf',
+#	'Which animal is this? <img src="/wiki/resources/assets/fluffy2.jpg“ alt="" title=“fluffy2” />' => 'cat',
+#);
+#foreach ( $arr as $key => $value ) {
+#	$wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
+#}
 
-
-$wgShowExceptionDetails = true;
-$wgShowDBErrorBacktrace = true;
+$wgEnableDnsBlacklist = true;
+$wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'dnsbl.tornevall.org' );
+$wgEnableDnsBlacklist = true;
+$wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'opm.tornevall.org' );
+$wgSpamRegex = "/online-casino|buy-viagra|adipex|phentermine|adult-website\.com|display:none|overflow:\s*auto;\s*height:\s*[0-4]px;/i";
